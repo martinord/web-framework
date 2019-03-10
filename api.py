@@ -1,6 +1,7 @@
 # api.py
 
 from webob import Request, Response
+from parse import parse
 
 class API:
     def __init__(self):
@@ -27,12 +28,31 @@ class API:
 
         return response(environ, start_response)
 
+    def find_handler(self, request_path):
+        for path, handler in self.routes.items():
+            parse_result = parse(path, request_path) # match the path and the request path. For attributes in the path
+            if parse_result is not None:
+                return handler, parse_result.named
+
+        return None, None
+
+    def default_response(self, response):
+        response.status_code = 404
+        response.text = "Not found."
+
     def handle_request(self, request):
         response = Response()
 
-        for path, handler in self.routes.items():
-            if path == request.path:
-                handler(request, response)
-                return response
+        # kwargs = keyworded arguments, for example:
+        # {
+        #     'name': 'Matthew'
+        # }
+
+        handler, kwargs = self.find_handler(request_path=request.path)
+
+        if handler is not None:
+            handler(request, response, **kwargs)
+        else:
+            self.default_response(response)
 
         return response

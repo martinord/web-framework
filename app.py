@@ -19,3 +19,8 @@ def home(request, response):
 @app.route("/about")
 def about(request, response):
     response.text = "Hello from the ABOUT page"
+
+# Note: name argument in greeting, is passed as keyworded arguments
+@app.route("/hello/{name}")
+def greeting(request, response, name):
+    response.text = f"Hello, {name}"
