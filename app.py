@@ -6,3 +6,16 @@
 from api import API
 
 app = API()
+
+# @ symbol establishes a decorator
+# In this case gets the app object (instance of API)
+# and calls the method "route", adding the next function
+# as handler of the path
+
+@app.route("/home")
+def home(request, response):
+    response.text = "Hello from the HOME page"
+
+@app.route("/about")
+def about(request, response):
+    response.text = "Hello from the ABOUT page"
