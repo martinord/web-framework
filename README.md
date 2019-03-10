@@ -6,4 +6,5 @@ It is based in the [article](http://rahmonov.me/posts/write-python-framework-par
 * Init a virtual environment (`python3.6 venv venv`) and start it with `source venv/bin/activate`
 * Create app.py
 * `pip install gunicorn`
-* `gunicorn app:app`
+* `gunicorn app:app` (start the server gunicorn)
+* Browse http://localhost:8000
