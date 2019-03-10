@@ -8,3 +8,7 @@ It is based in the [article](http://rahmonov.me/posts/write-python-framework-par
 * `pip install gunicorn`
 * `gunicorn app:app` (start the server gunicorn)
 * Browse http://localhost:8000
+
+## Packages used
+* gunicorn
+* webob
