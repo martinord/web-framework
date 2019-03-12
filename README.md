@@ -13,6 +13,10 @@ It is based in the [article](http://rahmonov.me/posts/write-python-framework-par
 * gunicorn
 * webob
 * parse
+* pytest
+
+### Unit testing
+Run `pytest test_web-framework.py` to run the unit thesting.
 
 ## Licence
 
