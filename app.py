@@ -24,3 +24,9 @@ def about(request, response):
 @app.route("/hello/{name}")
 def greeting(request, response, name):
     response.text = f"Hello, {name}"
+
+# Class-based handler
+@app.route("/book")
+class BooksResource:
+    def get(self, req, resp):
+        resp.text = "Books page"
