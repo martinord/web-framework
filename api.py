@@ -24,6 +24,13 @@ class API:
 
         return wrapper
 
+    def add_route(self, path, handler):
+        if path in self.routes:
+            raise AssertionError("Such route already exists")
+
+        self.routes[path] = handler
+
+
     # Override the call method of the class, called when calling the instances of the class
     def __call__(self, environ, start_response):
         request = Request(environ)

@@ -30,3 +30,9 @@ def greeting(request, response, name):
 class BooksResource:
     def get(self, req, resp):
         resp.text = "Books page"
+
+# Alternative way to add a routes
+def alt(request, response):
+    response.text = "This is the alt page"
+
+app.add_route("/alt", alt)
