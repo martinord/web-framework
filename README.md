@@ -3,6 +3,8 @@ This is a web framework written in Python for backend purposes, compatible with 
 
 It is based in the [article](http://rahmonov.me/posts/write-python-framework-part-one/) published by [Rahmonov](http://rahmonov.me/).
 
+The repo of Rahmanov can be also found [here](https://github.com/rahmonov/alcazar).
+
 ## Starting environment
 * Init a virtual environment (`python3.6 venv venv`) and start it with `source venv/bin/activate`
 * `pip install gunicorn`
