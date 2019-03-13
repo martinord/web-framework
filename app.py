@@ -36,3 +36,8 @@ def alt(request, response):
     response.text = "This is the alt page"
 
 app.add_route("/alt", alt)
+
+# Template support
+@app.route("/template")
+def template_handler(req, resp):
+    resp.body = app.template("index.html", context={"name":"Web-framework", "title":"My web framework"}).encode()

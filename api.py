@@ -1,17 +1,16 @@
 # api.py
 
+import os
 from webob import Request, Response
 from parse import parse
 import inspect
+from jinja2 import Environment, FileSystemLoader
 
 class API:
-    def __init__(self):
-        self.routes = {}
-        # dictionary element. Can look as this:
-        # {
-        #     "/home": <function home at 0x1100a70c8>,
-        #     "/about": <function about at 0x1101a80c3>
-        # }
+    def __init__(self, templates_dir="templates"):
+        self.routes = {}  # dictionary element
+        # Templates directory
+        self.templates_env = Environment(loader=FileSystemLoader(os.path.abspath(templates_dir)))
 
 
     def route(self, path):
@@ -72,3 +71,10 @@ class API:
             self.default_response(response)
 
         return response
+
+    # Templates support
+    def template(self, template_name, context=None):
+        if context is None:
+            context = {}
+
+        return self.templates_env.get_template(template_name).render(**context)

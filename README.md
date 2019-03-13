@@ -14,6 +14,7 @@ It is based in the [article](http://rahmonov.me/posts/write-python-framework-par
 * webob
 * parse
 * pytest
+* Jinja2
 
 ### Unit testing
 Run `pytest test_web-framework.py` to run the unit thesting.
