@@ -6,7 +6,7 @@ It is based in the [article](http://rahmonov.me/posts/write-python-framework-par
 The repo of Rahmanov can be also found [here](https://github.com/rahmonov/alcazar).
 
 ## Starting environment
-* Init a virtual environment (`python3.6 venv venv`) and start it with `source venv/bin/activate`
+* Init a virtual environment (`python3.6 -m venv venv`) and start it with `source venv/bin/activate`
 * `pip install gunicorn`
 * `gunicorn app:app` (start the server gunicorn)
 * Browse http://localhost:8000
